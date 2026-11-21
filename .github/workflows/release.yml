@@ -16,7 +16,7 @@ jobs:
         run: test "$GITHUB_REF_NAME" = "v$(cat VERSION)"
       - run: python scripts/validate_release.py
       - run: python scripts/build_release.py
-      - name: Publish native plugin bundles
+      - name: Publish portable skill bundle
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release create "$GITHUB_REF_NAME" dist/*.zip dist/SHA256SUMS --verify-tag --title "BMTC Data $GITHUB_REF_NAME" --notes-file CHANGELOG.md

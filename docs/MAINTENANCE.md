@@ -1,12 +1,9 @@
 # Maintenance and releases
 
-1. Reproduce a reported problem with synthetic fixtures or an ordinary permitted public read. Check the publisher documentation before changing endpoints, schemas or cadence. Stop on authentication/access denials; do not borrow browser credentials.
-2. Update only the canonical skill/helper and the relevant reference. Preserve source URLs and verification dates. Record changes in `CHANGELOG.md`.
-3. Run `python3 scripts/validate_release.py`. Test native manifest ingestion with `claude plugin validate --strict plugins/bmtc-data` and the current Codex plugin validator. Live smoke checks are manual and on demand, not scheduled bulk polling.
-4. Run `python3 scripts/set_version.py X.Y.Z`, validate again, and build with `python3 scripts/build_release.py`. All manifests/marketplaces share one version. Bundles include no captured datasets or caches.
-5. Commit, push and create a matching `vX.Y.Z` GitHub release with the generated ZIPs and `SHA256SUMS`. The release workflow can also build artifacts from an explicitly pushed version tag.
-6. Upload the new ChatGPT/Codex package to the existing OpenAI submission. For Claude directory distribution, update the tracked repository/version and complete required scans/review. Do not claim an update is live before the portal confirms it. Git marketplace users refresh and install the new version through their client.
+1. Reproduce a report with synthetic fixtures or an ordinary permitted public read. Check publisher documentation before changing endpoints, schemas or cadence. Stop on source access denials; do not borrow credentials.
+2. Update only the canonical skill/helper and relevant reference. Preserve source verification dates and explain user-visible changes in `CHANGELOG.md`.
+3. Run `python3 scripts/validate_release.py`. All tests are offline. Manual live smoke checks should be on demand and honor the shared cache; CI does not poll live transport feeds.
+4. Bump `VERSION`, validate, and build with `python3 scripts/build_release.py`. Commit and push the reviewed source. Skills CLI users can check and update their installed copy from GitHub.
+5. Create a matching `vX.Y.Z` tag to build and attach the portable skill ZIP and checksums to a GitHub release. A repository release is independent of any plugin directory. No paid publisher account or directory submission is involved.
 
-Review upstream source permissions before enabling public feed mirroring, resale, sustained high volume, or introducing a hosted backend. Code licensing does not grant rights over upstream data. A future hosted MCP connection should be designed and submitted as an explicit architecture change; adding MCP to an existing skills-only OpenAI listing may require a new submission under the current platform rules.
-
-No automatic maintenance agent, paid service, telemetry or scheduled source polling is installed by this repository.
+Confirm upstream rights before feed mirroring, resale, sustained high-volume access or introduction of a hosted backend. Code licensing does not grant rights over upstream transit data. No automatic maintenance agent, telemetry service or scheduled source polling is installed here.

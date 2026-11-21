@@ -1,4 +1,4 @@
-name: Validate plugin
+name: Validate skill
 on:
   push:
     branches: [main]
@@ -17,5 +17,5 @@ jobs:
       - run: python scripts/build_release.py
       - uses: actions/upload-artifact@v4
         with:
-          name: plugin-bundles
+          name: skill-bundle
           path: dist/
