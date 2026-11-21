@@ -1,0 +1,20 @@
+{
+  "name": "bmtc-data",
+  "version": "0.1.0",
+  "description": "Unofficial read-only BMTC route, schedule and live-observation skill for AI agents.",
+  "author": {
+    "name": "Kargnin",
+    "url": "https://github.com/Kargnin"
+  },
+  "homepage": "https://github.com/Kargnin/bmtc-agent-plugin",
+  "repository": "https://github.com/Kargnin/bmtc-agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "bmtc",
+    "bengaluru",
+    "bus",
+    "gtfs",
+    "transit"
+  ],
+  "displayName": "BMTC Data (Unofficial)"
+}

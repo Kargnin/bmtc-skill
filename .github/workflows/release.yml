@@ -1,0 +1,22 @@
+name: Publish release assets
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify tag matches package version
+        run: test "$GITHUB_REF_NAME" = "v$(cat VERSION)"
+      - run: python scripts/validate_release.py
+      - run: python scripts/build_release.py
+      - name: Publish native plugin bundles
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/*.zip dist/SHA256SUMS --verify-tag --title "BMTC Data $GITHUB_REF_NAME" --notes-file CHANGELOG.md

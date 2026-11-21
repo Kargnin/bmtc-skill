@@ -1,0 +1,40 @@
+{
+  "name": "bmtc-data",
+  "version": "0.1.0",
+  "description": "Unofficial read-only BMTC route, schedule and live-observation skill for AI agents.",
+  "author": {
+    "name": "Kargnin",
+    "url": "https://github.com/Kargnin"
+  },
+  "homepage": "https://github.com/Kargnin/bmtc-agent-plugin",
+  "repository": "https://github.com/Kargnin/bmtc-agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "bmtc",
+    "bengaluru",
+    "bus",
+    "gtfs",
+    "transit"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "BMTC Data (Unofficial)",
+    "shortDescription": "Routes, stops and live buses",
+    "longDescription": "Ask about Bengaluru BMTC routes, directional stops, schedules, observed vehicle locations and predicted arrivals. This unofficial read-only skill uses documented public Reclaim GTFS feeds, shows source timestamps and flags stale or unmatched observations. It needs Python, curl and permitted HTTPS in the executing environment. It does not guarantee bus operation, boarding or on-time arrival, and does not book tickets or run a background tracker.",
+    "developerName": "Kargnin",
+    "category": "Productivity",
+    "capabilities": [],
+    "websiteURL": "https://github.com/Kargnin/bmtc-agent-plugin",
+    "privacyPolicyURL": "https://github.com/Kargnin/bmtc-agent-plugin/blob/main/plugins/bmtc-data/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/Kargnin/bmtc-agent-plugin/blob/main/plugins/bmtc-data/TERMS.md",
+    "defaultPrompt": [
+      "Which BMTC routes serve my stop?",
+      "Show fresh arrivals for my bus stop.",
+      "Find the observed location of this bus."
+    ],
+    "brandColor": "#145DA0",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "logoDark": "./assets/icon.png"
+  }
+}
